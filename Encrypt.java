@@ -3,17 +3,24 @@ package ru.vkd.one;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Класс Encrypt предназначен для шфрования текстового файла
+ * В качевстве входных данных принимается путь к файлу с расщирение .txt который нужно зашифровать и путь к файлу в который будет записан зашифрованный текст.
+ * конечный результат зашифрованный файл с расширением .txt
+ */
 public class Encrypt {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+
         String str = "";
         char[] chars;
         StringBuilder test2;
+
         String fileDirect;
-        String encryptFile;
         System.out.print("путь к файлу для шифрования - ");
         fileDirect = sc.nextLine();
+
+        String encryptFile;
         System.out.print("куда зашифровать ? - ");
         encryptFile = sc.nextLine();
 

@@ -5,6 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Класс Decrypt предназначен для расшифровки текстового файла с расширением .txt зашифрованного шифром Цезаря
+ * В качевстве входных данных принимается путь к зашифрованному файлу и максимальное количевство сдвигов
+ * конечный результат выведенный в консоль текст со сдвигом
+ */
 public class Decrypt {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,19 +18,18 @@ public class Decrypt {
         char[] chars;
         StringBuilder test2;
         int h =0;
-        int repeat;
-
+        
         String encryptFile;
         System.out.println("Введите путь к файлу - ");
         encryptFile = sc.nextLine();
 
+        int repeat;
         System.out.print("Введите максимальное количевство сдвигов - ");
         repeat = sc.nextInt();
 
         System.out.println("");
 
         while (h != repeat) {
-            h++;
             try (BufferedReader read = new BufferedReader(new FileReader(encryptFile))) {
                 while ((str = read.readLine()) != null) {
                     chars = str.toCharArray();
@@ -35,13 +39,12 @@ public class Decrypt {
                         test2.append(chars[g]);
                     }
                     System.out.println(test2);
-
                 }
-
                 System.out.println("___________________________________________");
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            h++;
         }
     }
 }
