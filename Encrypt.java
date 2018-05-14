@@ -14,7 +14,7 @@ public class Encrypt {
         String encryptFile;
         System.out.print("путь к файлу для шифрования - ");
         fileDirect = sc.nextLine();
-        System.out.print("путь к дериктории в котором нужно создать файл с зашифрованным текстом - ");
+        System.out.print("куда зашифровать ? - ");
         encryptFile = sc.nextLine();
 
         try(BufferedReader read  = new BufferedReader(new FileReader(fileDirect)); BufferedWriter write = new BufferedWriter(new FileWriter(encryptFile))) {

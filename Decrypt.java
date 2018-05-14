@@ -12,22 +12,36 @@ public class Decrypt {
         String str = "";
         char[] chars;
         StringBuilder test2;
+        int h =0;
+        int repeat;
 
         String encryptFile;
+        System.out.println("Введите путь к файлу - ");
         encryptFile = sc.nextLine();
 
-        try(BufferedReader read = new BufferedReader(new FileReader(encryptFile))){
-            while ( ( str = read.readLine() ) !=null ) {
-                chars = str.toCharArray();
-                test2 = new StringBuilder();
-                for ( byte g = 0; g < chars.length; g++) {
-                    chars[g] = (char) (chars[g] + 2);
-                    test2.append(chars[g]);
+        System.out.print("Введите максимальное количевство сдвигов - ");
+        repeat = sc.nextInt();
+
+        System.out.println("");
+
+        while (h != repeat) {
+            h++;
+            try (BufferedReader read = new BufferedReader(new FileReader(encryptFile))) {
+                while ((str = read.readLine()) != null) {
+                    chars = str.toCharArray();
+                    test2 = new StringBuilder();
+                    for (byte g = 0; g < chars.length; g++) {
+                        chars[g] = (char) (chars[g] + h);
+                        test2.append(chars[g]);
+                    }
+                    System.out.println(test2);
+
                 }
-                System.out.println(test2);
+
+                System.out.println("___________________________________________");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
