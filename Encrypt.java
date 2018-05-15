@@ -29,7 +29,7 @@ public class Encrypt {
                 chars = str.toCharArray();
                 test2 = new StringBuilder();
                 for ( byte g = 0 ; chars.length > g ; g++ ){
-                    chars[g] = (char) (chars[g] - 2);
+                    chars[g] = (char) (chars[g] + 2);
                     test2.append(chars[g]);
                 }
                 write.write(String.valueOf(test2+"\n"));

@@ -18,14 +18,17 @@ public class Decrypt {
         char[] chars;
         StringBuilder test2;
         int h =0;
-        
+
         String encryptFile;
         System.out.println("Введите путь к файлу - ");
         encryptFile = sc.nextLine();
 
         int repeat;
         System.out.print("Введите максимальное количевство сдвигов - ");
-        repeat = sc.nextInt();
+
+        while ( ( repeat = sc.nextInt() ) < 0 ){
+            System.out.println("Макисмальное количевство сдвигов не может принимать отрицательное значение");
+        }
 
         System.out.println("");
 
@@ -35,7 +38,7 @@ public class Decrypt {
                     chars = str.toCharArray();
                     test2 = new StringBuilder();
                     for (byte g = 0; g < chars.length; g++) {
-                        chars[g] = (char) (chars[g] + h);
+                        chars[g] = (char) (chars[g] - h);
                         test2.append(chars[g]);
                     }
                     System.out.println(test2);
